@@ -1,0 +1,44 @@
+a { cursor: pointer }
+.form-group {
+  margin-bottom: 30px;
+}
+.form-control, .form-control:focus, .form-control.is-invalid:focus {
+  box-shadow: none;
+}
+.row {
+    margin: 0 auto;
+    width: 100%;
+}
+.bkg_gray {
+  background:#dee4e8;
+}
+.fw [class*="col-"] {
+  background-clip:inherit;
+  border: none;
+  padding: 15px;
+}
+.fw .col-md-12.col-sm-12 .row:first-child .col-sm-12:first-child {
+  padding-top:0px;
+}
+.fw .col-md-12.col-sm-12 .row .col-sm-12 div:not(.footer-container):not(.placeholder-div), 
+.fw .col-md-12.col-sm-12 .row .col-sm-4 div, .row .col-sm-8 div  {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 200px;
+}
+.fw .col-md-12.col-sm-12 div p {
+  margin: 0px;
+}
+.fw .container-fluid .col-md-3 .placeholder-div {
+  margin-top: 0px;
+  height: 750px;
+}
+.fw .placeholder-div a {
+  font-size: 16px;
+}
+@media screen and (max-width:763px) {
+  .fw .row{ margin: 0 -15px;}
+}

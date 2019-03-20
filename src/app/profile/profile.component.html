@@ -1,0 +1,67 @@
+﻿<header></header>
+<!-- Editable card/table -->
+<div class="card">
+  <h3>Profile</h3>
+  <div class="card-body">
+    <div id="table" class="table-editable">
+      <div>
+        <div class="card-item-container" *ngFor="let person of personList; let id = index">
+          <div class="bentley-vin-label">
+            {{currentUser.firstName}} {{currentUser.lastName}}
+            <button type="button" mdbBtn color="danger" rounded="true" class="btn btn-sm btn-default float-right delete-account-btn" (click)="remove(id)">Delete account</button>
+          </div>
+          <div class="card-item">
+            <h4 class="card-info-label">Preferences</h4>
+            <div class="card-info">
+              <ul>
+                <li>Address: <span contenteditable="true" (keyup)="changeValue(id, 'address', $event)">{{person.address}}</span></li>
+                <li>Phone Number: <span contenteditable="true" (keyup)="changeValue(id, 'phoneNumber', $event)">{{person.phoneNumber}}</span></li>
+                <li>Email Address: {{currentUser.emailAddress}}</li>
+                <li>Security Question One: {{currentUser.securityqone}}</li>
+                <li>Security Question Two: {{currentUser.securityqtwo}}</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="card-item">
+            <h4 class="card-info-label">Account information</h4>
+            <div class="card-info">
+              <ul>
+                <li>User account #: <span contenteditable="false" (keyup)="changeValue(id, 'userAccount', $event)">{{person.userAccount}}</span></li>
+                <li>Service Plan: <span contenteditable="false" (keyup)="changeValue(id, 'servicePlan', $event)">{{person.servicePlan}}</span></li>
+                <li>Subscription Duration: <span contenteditable="false" (keyup)="changeValue(id, 'subscription', $event)">{{person.subscription}}</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--
+      <table class="vp-table table table-bordered table-responsive-md table-striped">
+        <tr>
+          <th>VIN</th>
+          <th>Person Name</th>
+          <th>Age</th>
+          <th class="text-left">Company Name</th>
+          <th class="text-left">Country</th>
+          <th class="text-left">City</th>
+          <th class="text-left">Remove</th>
+        </tr>
+        <tr *ngFor="let person of personList; let id = index">
+          <td contenteditable="true" (keyup)="changeValue(id, 'vin', $event)" (blur)="updateList(id, 'vin', $event)">{{person.vin}}</td>
+          <td contenteditable="true" (keyup)="changeValue(id, 'name', $event)" (blur)="updateList(id, 'name', $event)">{{person.name}}</td>
+          <td contenteditable="true" (keyup)="changeValue(id, 'age', $event)" (blur)="updateList(id, 'age', $event)">{{person.age}}</td>
+          <td class="text-left" contenteditable="true" (keyup)="changeValue(id, 'companyName', $event)" (blur)="updateList(id, 'companyName', $event)">{{person.companyName}}</td>
+          <td class="text-left" contenteditable="true" (keyup)="changeValue(id, 'country', $event)" (blur)="updateList(id, 'country', $event)">{{person.country}}</td>
+          <td class="text-left" contenteditable="true" (keyup)="changeValue(id, 'city', $event)" (blur)="updateList(id, 'city', $event)">{{person.city}}</td>
+          <td>
+            <span class="table-remove">
+              <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="btn btn-sm btn-primary" (click)="remove(id)">Remove</button>
+            </span>
+          </td>
+        </tr>
+      </table>
+    -->
+    </div>
+  </div>
+</div>
+<!-- Editable card/table -->

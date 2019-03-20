@@ -1,0 +1,40 @@
+﻿<div class="card">
+  <h3>My Bentley(s)</h3>
+  <div class="card-body">
+    <div id="table" class="table-editable">  
+      <table class="vp-table table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="10">
+        <thead>
+        <tr>
+            <th>
+                <mfDefaultSorter by="vin">VIN</mfDefaultSorter>
+            </th>
+            <th>
+                <mfDefaultSorter by="ssid">SSID</mfDefaultSorter>
+            </th>
+            <th>
+                <mfDefaultSorter by="s/n">S/N</mfDefaultSorter>
+            </th>
+            <th>
+                <mfDefaultSorter by="status">Status</mfDefaultSorter>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let user of mf.data">
+            <td><a [routerLink]="['/home']">{{user.vin}}</a></td>
+            <td>{{user.ssid}}</td>
+            <td class="text-right">{{user.sn}}</td>
+            <td>{{user.status | uppercase}}</td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="4">
+                <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25,50,100]"></mfBootstrapPaginator>
+            </td>
+        </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</div>

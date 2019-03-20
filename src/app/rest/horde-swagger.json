@@ -1,0 +1,1225 @@
+{
+  "x-generator": "NSwag v11.17.18.0 (NJsonSchema v9.10.58.0 (Newtonsoft.Json v10.0.0.0))",
+  "swagger": "2.0",
+  "info": {
+    "title": "Horde API WIP",
+    "version": "0.0.1"
+  },
+  "host": "localhost:3295",
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json-patch+json",
+    "application/json",
+    "text/json",
+    "application/*+json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/api/Bootstrap": {
+      "get": {
+        "tags": [
+          "Bootstrap"
+        ],
+        "operationId": "Bootstrap_Bootstrap",
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "schema": {
+              "type": "file"
+            }
+          }
+        }
+      }
+    },
+    "/api/Bootstrap/test": {
+      "get": {
+        "tags": [
+          "Bootstrap"
+        ],
+        "operationId": "Bootstrap_Test",
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "schema": {
+              "type": "file"
+            }
+          }
+        }
+      }
+    },
+    "/api/CloudServer": {
+      "post": {
+        "tags": [
+          "CloudServer"
+        ],
+        "operationId": "CloudServer_CreateNewInstance",
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "CloudServer"
+        ],
+        "operationId": "CloudServer_Get",
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/CloudServerDto"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/CloudServer/{instanceId}": {
+      "delete": {
+        "tags": [
+          "CloudServer"
+        ],
+        "operationId": "CloudServer_TerminateInstance",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "instanceId",
+            "in": "path",
+            "required": true,
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/Gateway/GetAll": {
+      "get": {
+        "tags": [
+          "Gateway"
+        ],
+        "operationId": "Gateway_GetAll",
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/GatewayDto"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Gateway/GetPaginated": {
+      "get": {
+        "tags": [
+          "Gateway"
+        ],
+        "operationId": "Gateway_GetPaginated",
+        "parameters": [
+          {
+            "type": "integer",
+            "name": "pageIndex",
+            "in": "query",
+            "required": true,
+            "format": "int32",
+            "x-nullable": false
+          },
+          {
+            "type": "integer",
+            "name": "pageSize",
+            "in": "query",
+            "required": true,
+            "format": "int32",
+            "x-nullable": false
+          },
+          {
+            "type": "string",
+            "name": "sortActive",
+            "in": "query",
+            "required": true,
+            "x-schema": {
+              "$ref": "#/definitions/GatewaySortFields"
+            },
+            "x-nullable": false,
+            "enum": [
+              "Undefined",
+              "PublicIp",
+              "PrivateIp"
+            ]
+          },
+          {
+            "type": "string",
+            "name": "sortDirection",
+            "in": "query",
+            "required": true,
+            "x-schema": {
+              "$ref": "#/definitions/SortDirection"
+            },
+            "x-nullable": false,
+            "enum": [
+              "None",
+              "Asc",
+              "Asc",
+              "Descending",
+              "Descending"
+            ]
+          },
+          {
+            "type": "string",
+            "name": "filter",
+            "in": "query",
+            "required": true,
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PaginatedResponseOfGateway"
+            }
+          }
+        }
+      }
+    },
+    "/api/Gateway/{id}": {
+      "get": {
+        "tags": [
+          "Gateway"
+        ],
+        "operationId": "Gateway_Get",
+        "parameters": [
+          {
+            "type": "integer",
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "format": "int32",
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Gateway"
+        ],
+        "operationId": "Gateway_Put",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "type": "integer",
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "format": "int32",
+            "x-nullable": false
+          },
+          {
+            "name": "value",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Gateway"
+        ],
+        "operationId": "Gateway_Delete",
+        "parameters": [
+          {
+            "type": "integer",
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "format": "int32",
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/Gateway": {
+      "post": {
+        "tags": [
+          "Gateway"
+        ],
+        "operationId": "Gateway_Post",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "name": "value",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/Horde/gateway/register": {
+      "post": {
+        "tags": [
+          "Horde"
+        ],
+        "operationId": "Horde_RegisterGateway",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "name": "dto",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/GatewayRegistrationRequestBody"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "schema": {
+              "type": "file"
+            }
+          }
+        }
+      }
+    },
+    "/api/Horde/gateway/config": {
+      "get": {
+        "tags": [
+          "Horde"
+        ],
+        "operationId": "Horde_GetGatewayConfig",
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "schema": {
+              "type": "file"
+            }
+          }
+        }
+      }
+    },
+    "/api/Horde/router/register": {
+      "post": {
+        "tags": [
+          "Horde"
+        ],
+        "operationId": "Horde_RegisterRouter",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "name": "dto",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RouterRegistrationRequestBody"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "schema": {
+              "type": "file"
+            }
+          }
+        }
+      }
+    },
+    "/api/Role": {
+      "delete": {
+        "tags": [
+          "Role"
+        ],
+        "operationId": "Role_Delete",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "roleName",
+            "in": "query",
+            "required": true,
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Role"
+        ],
+        "operationId": "Role_Post",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "name": "dtoRole",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RoleDto"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "schema": {
+              "type": "file"
+            }
+          }
+        }
+      }
+    },
+    "/api/Role/GetAll": {
+      "get": {
+        "tags": [
+          "Role"
+        ],
+        "operationId": "Role_GetAll",
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/RoleDto"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Role/GetPaginated": {
+      "get": {
+        "tags": [
+          "Role"
+        ],
+        "operationId": "Role_GetPaginated",
+        "parameters": [
+          {
+            "type": "integer",
+            "name": "pageIndex",
+            "in": "query",
+            "required": true,
+            "format": "int32",
+            "x-nullable": false
+          },
+          {
+            "type": "integer",
+            "name": "pageSize",
+            "in": "query",
+            "required": true,
+            "format": "int32",
+            "x-nullable": false
+          },
+          {
+            "type": "string",
+            "name": "filter",
+            "in": "query",
+            "required": true,
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PaginatedResponseOfRole"
+            }
+          }
+        }
+      }
+    },
+    "/api/Role/{roleName}": {
+      "get": {
+        "tags": [
+          "Role"
+        ],
+        "operationId": "Role_Get",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "roleName",
+            "in": "path",
+            "required": true,
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/RoleDto"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Role"
+        ],
+        "operationId": "Role_Put",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "type": "string",
+            "name": "roleName",
+            "in": "path",
+            "required": true,
+            "x-nullable": true
+          },
+          {
+            "name": "dtoRole",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/RoleDto"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "schema": {
+              "type": "file"
+            }
+          }
+        }
+      }
+    },
+    "/api/User/{id}": {
+      "delete": {
+        "tags": [
+          "User"
+        ],
+        "operationId": "User_Delete",
+        "parameters": [
+          {
+            "type": "integer",
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "format": "int32",
+            "x-nullable": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "operationId": "User_Put",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "type": "integer",
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "format": "int32",
+            "x-nullable": false
+          },
+          {
+            "name": "dtoUser",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserDto"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "schema": {
+              "type": "file"
+            }
+          }
+        }
+      }
+    },
+    "/api/User/GetAll": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "operationId": "User_GetAll",
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/UserDto"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/User/GetPaginated": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "operationId": "User_GetPaginated",
+        "parameters": [
+          {
+            "type": "integer",
+            "name": "pageIndex",
+            "in": "query",
+            "required": true,
+            "format": "int32",
+            "x-nullable": false
+          },
+          {
+            "type": "integer",
+            "name": "pageSize",
+            "in": "query",
+            "required": true,
+            "format": "int32",
+            "x-nullable": false
+          },
+          {
+            "type": "string",
+            "name": "filter",
+            "in": "query",
+            "required": true,
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/PaginatedResponseOfUserDto"
+            }
+          }
+        }
+      }
+    },
+    "/api/User/{emailAddress}": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "operationId": "User_Get",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "emailAddress",
+            "in": "path",
+            "required": true,
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/UserDto"
+            }
+          }
+        }
+      }
+    },
+    "/api/User": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "operationId": "User_Post",
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "name": "dtoUser",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserDto"
+            },
+            "x-nullable": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "schema": {
+              "type": "file"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "CloudServerDto": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state",
+        "vendor"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "state": {
+          "$ref": "#/definitions/State"
+        },
+        "vendor": {
+          "$ref": "#/definitions/Vendor"
+        }
+      }
+    },
+    "State": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Running",
+        "Pending",
+        "ShuttingDown",
+        "Stopped",
+        "Stopping",
+        "Terminated"
+      ],
+      "enum": [
+        "Running",
+        "Pending",
+        "ShuttingDown",
+        "Stopped",
+        "Stopping",
+        "Terminated"
+      ]
+    },
+    "Vendor": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Aws",
+        "DigitalOcean",
+        "Azure"
+      ],
+      "enum": [
+        "Aws",
+        "DigitalOcean",
+        "Azure"
+      ]
+    },
+    "GatewayDto": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "lowestPort",
+        "numChannels",
+        "privateIpAddress",
+        "publicIpAddress",
+        "uuid"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "lowestPort": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "numChannels": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "privateIpAddress": {
+          "type": "string"
+        },
+        "publicIpAddress": {
+          "type": "string"
+        },
+        "uuid": {
+          "type": "string",
+          "format": "guid"
+        }
+      }
+    },
+    "GatewaySortFields": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Undefined",
+        "PublicIp",
+        "PrivateIp"
+      ],
+      "enum": [
+        "Undefined",
+        "PublicIp",
+        "PrivateIp"
+      ]
+    },
+    "SortDirection": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "None",
+        "Ascending",
+        "Asc",
+        "Descending",
+        "Desc"
+      ],
+      "enum": [
+        "None",
+        "Asc",
+        "Asc",
+        "Descending",
+        "Descending"
+      ]
+    },
+    "PaginatedResponseOfGateway": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "noOfEntities"
+      ],
+      "properties": {
+        "entities": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Gateway"
+          }
+        },
+        "noOfEntities": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "Gateway": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "lowestPort",
+        "numChannels",
+        "uuid"
+      ],
+      "properties": {
+        "lowestPort": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "numChannels": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "privateIpAddress": {
+          "type": "string"
+        },
+        "publicIpAddress": {
+          "type": "string"
+        },
+        "router": {
+          "$ref": "#/definitions/Router"
+        },
+        "uuid": {
+          "type": "string",
+          "format": "guid"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/Entity"
+        }
+      ]
+    },
+    "Router": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "serial": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/Entity"
+        }
+      ]
+    },
+    "Entity": {
+      "type": "object",
+      "x-abstract": true,
+      "additionalProperties": false,
+      "required": [
+        "deleted",
+        "id"
+      ],
+      "properties": {
+        "deleted": {
+          "type": "boolean"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "GatewayRegistrationRequestBody": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "lowest_port",
+        "num_channels",
+        "internal_ipv4_addr",
+        "external_ipv4_addr"
+      ],
+      "properties": {
+        "lowest_port": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "num_channels": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "internal_ipv4_addr": {
+          "type": "string"
+        },
+        "external_ipv4_addr": {
+          "type": "string"
+        }
+      }
+    },
+    "RouterRegistrationRequestBody": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "client": {
+          "$ref": "#/definitions/Client"
+        }
+      }
+    },
+    "Client": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "num_channels",
+        "serial"
+      ],
+      "properties": {
+        "environment": {
+          "$ref": "#/definitions/Environment"
+        },
+        "num_channels": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "serial": {
+          "type": "string"
+        }
+      }
+    },
+    "Environment": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "os": {
+          "type": "string"
+        },
+        "architecture": {
+          "type": "string"
+        }
+      }
+    },
+    "RoleDto": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "roleName",
+        "permissions"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "roleDescription": {
+          "type": "string"
+        },
+        "roleName": {
+          "type": "string"
+        },
+        "permissions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Permission"
+          }
+        }
+      }
+    },
+    "Permission": {
+      "type": "string",
+      "description": "",
+      "x-enumNames": [
+        "Admin",
+        "Login",
+        "ViewDashboard"
+      ],
+      "enum": [
+        "Admin",
+        "Login",
+        "ViewDashboard"
+      ]
+    },
+    "PaginatedResponseOfRole": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "noOfEntities"
+      ],
+      "properties": {
+        "entities": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Role"
+          }
+        },
+        "noOfEntities": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
+    "Role": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "permissions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Permission"
+          }
+        },
+        "roleDescription": {
+          "type": "string"
+        },
+        "roleName": {
+          "type": "string"
+        },
+        "audit": {
+          "$ref": "#/definitions/Audit"
+        }
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/Entity"
+        }
+      ]
+    },
+    "Audit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "auditId"
+      ],
+      "properties": {
+        "auditId": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "dateCreated": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "dateDeleted": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "dateUpdated": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "userCreated": {
+          "type": "string"
+        },
+        "userDeleted": {
+          "type": "string"
+        },
+        "userUpdated": {
+          "type": "string"
+        }
+      }
+    },
+    "UserDto": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "emailAddress": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "permissions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Permission"
+          }
+        },
+        "roles": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/RoleDto"
+          }
+        }
+      }
+    },
+    "PaginatedResponseOfUserDto": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "noOfEntities"
+      ],
+      "properties": {
+        "entities": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/UserDto"
+          }
+        },
+        "noOfEntities": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    }
+  }
+}

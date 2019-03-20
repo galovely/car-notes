@@ -1,0 +1,93 @@
+﻿<div class="col-md-6" style="margin: 0 auto;float:none;">
+    <h2>Register</h2>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div data-track-content data-content-name="Form" data-content-piece="form_input_opt_1" class="form-group vp-form-text vp-focus">
+          <div class="vp-form-bdr">
+            <label for="firstName">First Name</label>
+            <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+            <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                <div *ngIf="f.firstName.errors.required">First Name is required</div>
+            </div>
+          </div>
+        </div>
+        <div data-track-content data-content-name="Form" data-content-piece="form_input_opt_2" class="form-group vp-form-text vp-focus">
+          <div class="vp-form-bdr">
+            <label for="lastName">Last Name</label>
+            <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+            <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+            </div>
+          </div>
+        </div>
+        <div data-track-content data-content-name="Form" data-content-piece="form_input_opt_3" class="form-group vp-form-text vp-focus">
+          <div class="vp-form-bdr">
+            <label for="emailAddress">Email Address</label>
+            <input type="text" formControlName="emailAddress" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.emailAddress.errors }" ngModel email="true" />
+            <div *ngIf="submitted && f.emailAddress.errors" class="invalid-feedback">
+                <div *ngIf="f.emailAddress.errors.required">Email Address is required</div>
+                <div *ngIf="f.emailAddress.errors.minlength">Email Address must be at least 6 characters</div>
+            </div>
+          </div>
+        </div>
+        <div data-track-content data-content-name="Form" data-content-piece="form_input_opt_4" class="form-group vp-form-text vp-focus">
+          <div class="vp-form-bdr">
+            <label for="username">Username</label>
+            <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+            <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                <div *ngIf="f.username.errors.required">Username is required</div>
+            </div>
+          </div>
+        </div>
+        <div data-track-content data-content-name="Form" data-content-piece="form_input_opt_5" class="form-group vp-form-text vp-focus">
+          <div class="vp-form-bdr">
+            <label for="password">Password</label>
+            <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required">Password is required</div>
+                <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+            </div>
+          </div>
+        </div>
+
+        <h3>Security Questions</h3>
+        <div data-track-content data-content-name="Form" data-content-piece="form_input_opt_7" class="form-group vp-form-text vp-focus">
+          <div class="vp-form-bdr">
+            <label for="securityqone">What is your mother's maiden name?</label>
+            <input type="text" formControlName="securityqone" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.securityqone.errors }" />
+            <div *ngIf="submitted && f.securityqone.errors" class="invalid-feedback">
+                <div *ngIf="f.securityqone.errors.required">Security Question one is required</div>
+            </div>
+          </div>
+        </div>
+        <div data-track-content data-content-name="Form" data-content-piece="form_input_opt_8" class="form-group vp-form-text vp-focus">
+          <div class="vp-form-bdr">
+            <label for="securityqtwo">What is your childhood nickname?</label>
+            <input type="text" formControlName="securityqtwo" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.securityqtwo.errors }" />
+            <div *ngIf="submitted && f.securityqtwo.errors" class="invalid-feedback">
+                <div *ngIf="f.securityqtwo.errors.required">Security Question two is required</div>
+            </div>
+          </div>
+        </div>
+
+        <div data-track-content data-content-name="Form" data-content-piece="form_input_opt_9" class="form-group vp-form-text vp-focus">
+          <div class="vp-form-bdr">
+            <label for="bentleyRoles">Role</label>
+            <input type="text" formControlName="bentleyRoles" class="form-control" value="Subscriber" />
+          </div>
+        </div>
+        <!--
+        <div data-track-content data-content-name="Form" data-content-piece="form_input_opt_6" class="form-group vp-form-text vp-focus">
+          <div class="vp-form-bdr">
+            <label>Terms & Conditions</label>
+            <textarea type="text" class="form-control">Your Online Terms and Conditions help protect you and your users. Be upfront and explain-legally-how your site works, what's okay, and what's not. This can include membership terms or what constitutes harassment on your site. When someone doesn't follow the rules, this is your avenue for restricting them or even banishing them from your site. After all, you want to make sure your site is enjoyable to the real users who make up your online community. Plus, this is one of the few legal trump cards site owners have. Use it wisely. You've put a lot of work into design and outreach. Don't let a few baiters or bad apples get to you. Ticking Online Terms and Conditions off your pre-launch list helps you get one virtual foot closer to success.
+            </textarea>
+          </div>
+        </div>
+    -->
+        <div class="form-group">
+            <button [disabled]="loading" class="btn btn-sm btn-primary">Register</button>
+            <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+            <a [routerLink]="['/login']" class="btn btn-link" style="width:auto;">Cancel</a>
+        </div>
+    </form>
+</div>

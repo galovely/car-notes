@@ -1,0 +1,26 @@
+﻿<div class="fw" style="width:100%;">
+<!-- HEADER -->
+    <div class="hdr-bg"></div>
+    <div class="hdr fw-vp" style="height: 80px;">
+        <div class="hdr-brand">
+            <a data-track-content data-content-name="Header-multi level" data-content-piece="h_link_logo_1" href="#"><img src="http://demo.ux.viasat.io/portals/bentley/img-fpo/logo@2x.png" class="" alt="Bentley Logo : Click to go back to homepage" style="width: 140px;"></a>
+        </div>
+        <div class="hdr-brand" style="float:right;">
+            <span style="padding-right:20px;"><a [routerLink]="['/profile']">Profile</a></span>
+            <span style="padding-right:20px;">Hi {{currentUser.firstName}} | {{currentUser.emailAddress}}!</span>
+            <span><a [routerLink]="['/login']">Logout</a></span>
+        </div>
+    </div>
+    <div class="hdr-navbar hdr hide-desktop"> <!-- add dark class for 'dark" nav-->
+        <div class="navbar yamm fw-vp">
+            <div class="navbar-header">
+                <div class="hdr-brand hide-desktop"><a data-track-content data-content-name="Header-multi level" data-content-piece="h_link_logo_1" href="#"><img src="http://ux.viasat.io/wp-content/uploads/2017/11/viasat-grd-logo.png" class="" alt="Viasat Logo : Click to go back to homepage"></a></div>
+                <div class="hdr-brand" style="float:right;">
+                <span style="padding-right:20px;">Hi {{currentUser.firstName}}!</span>
+                <span><a [routerLink]="['/login']">Logout</a></span>
+            </div>
+            </div>
+        </div>
+    </div>
+    <!-- ** TOP NAVBAR ** -->
+</div>

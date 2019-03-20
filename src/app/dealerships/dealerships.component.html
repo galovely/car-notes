@@ -1,0 +1,21 @@
+﻿<!-- Editable card/table -->
+<div class="card">
+  <h3>My Preferred Dealership</h3>
+  <div class="card-body">
+    <div id="table" class="table-editable">
+      <table class="vp-table table table-bordered table-responsive-md table-striped">
+        <tr>
+          <th>Preferred Retailer</th>
+          <th>Customer Service Rep</th>
+          <th>Phone Number (optional)</th>
+        </tr>
+        <tr *ngFor="let person of personList; let id = index">
+          <td contenteditable="false" (keyup)="changeValue(id, 'vin', $event)" (blur)="updateList(id, 'vin', $event)">{{person.retailer}}</td>
+          <td contenteditable="false" (keyup)="changeValue(id, 'name', $event)" (blur)="updateList(id, 'name', $event)">{{person.serviceRep}}</td>
+          <td contenteditable="false" (keyup)="changeValue(id, 'age', $event)" (blur)="updateList(id, 'age', $event)">{{person.phoneNumber}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<!-- Editable card/table -->
