@@ -7,7 +7,7 @@
 export class DealershipsComponent {
     editField: string;
     personList: Array<any> = [
-      { id: 1, retailer: 'Bentley Manchester (Norwich, UK)', serviceRep: 'Gemma Star', phoneNumber: '44-123-456-7890' },
+      { id: 1, retailer: 'Bentley Rancho Santa Fe', serviceRep: 'Gemma Star', phoneNumber: '760-476-4755' },
     ];
 
     awaitingPersonList: Array<any> = [
