@@ -7,7 +7,7 @@ Bentley car notes app allows the user to:
 - login authentication
 
 After you are logged in you can:
-- Add a car note undr my cars section
+- Add a car note under the My Cars section
 - Delete a car note
 - Edit car note fields
 - Access the profile page from header
@@ -17,7 +17,7 @@ After you are logged in you can:
 Tech Stack
 - Angular 6
 - Webpack 4
-- Bootstrap 3
+- Bootstrap 4
 
 Instructions:
 - npm install
